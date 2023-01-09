@@ -55,12 +55,17 @@ class _HomePageState extends State<HomePage> {
             if (_response != null)
               Column(
                 children: [
-                  /*  Image.network(
-                    _response.iconUrl,
-                    height: 50,
-                    width: 50,
-                  ),*/
-
+                  isVisible == true
+                      ? Image.network(
+                          '',
+                          height: 50,
+                          width: 50,
+                        )
+                      : Image.network(
+                          _response.iconUrl,
+                          height: 50,
+                          width: 50,
+                        ),
                   Text("${_response.cityNamee}"),
                   isVisible == true
                       ? Text("")

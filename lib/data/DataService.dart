@@ -6,7 +6,11 @@ import 'package:http/http.dart' as http;
 class DataService {
   Future<WeatherResponse> getWeather(String city) async {
     //https:///data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-    final queryParamaters = {'q': city, 'appid': '', 'units': 'imperial'};
+    final queryParamaters = {
+      'q': city,
+      'appid': 'c4099a39068f8ec2abc163f79e53f88a',
+      'units': 'imperial'
+    };
     // final urlWeather =Url.https('api.openweathermap.org,'/data/2.5/weather',  queryParamaters);
     final urlWeather = Uri.https(
         'api.openweathermap.org', '/data/2.5/weather', queryParamaters);
