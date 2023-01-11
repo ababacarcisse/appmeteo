@@ -1,14 +1,21 @@
+// ignore: file_names
 class TemperatureInfo {
   final double? temp;
-  final int? feels_like;
+  // ignore: non_constant_identifier_names
+  final double? feels_like;
   final int? pressure;
   final int? humidity;
   TemperatureInfo(
-      {required this.temp, this.feels_like, this.pressure, this.humidity});
+      // ignore: non_constant_identifier_names
+      {required this.temp,
+      this.feels_like,
+      this.pressure,
+      this.humidity});
 
   factory TemperatureInfo.fromJson(Map<String, dynamic> json) {
     final double? temp;
-    final int? feels_like;
+    // ignore: non_constant_identifier_names
+    final double? feels_like;
     final int? pressure;
     final int? humidity;
 
@@ -39,7 +46,7 @@ class CurentInfo {
 
 class WeatherInfo {
   final String? description;
-  final String icon;
+  final String? icon;
   WeatherInfo({required this.description, required this.icon});
 
   factory WeatherInfo.from(Map<String, dynamic> json) {
@@ -54,17 +61,18 @@ class WeatherResponse {
   final String? cityNamee;
   final TemperatureInfo? tempInfo;
   final WeatherInfo? weatherInfo;
-  final CurentInfo? curentInfo;
+  // final CurentInfo? curentInfo;
   //propriété pour obtenir les images
   String get iconUrl {
     return 'https://openweathermap.org/img/wn/${weatherInfo?.icon}@2x.png';
   }
 
-  WeatherResponse(
-      {this.cityNamee,
-      required this.tempInfo,
-      required this.weatherInfo,
-      required this.curentInfo});
+  WeatherResponse({
+    this.cityNamee,
+    required this.tempInfo,
+    required this.weatherInfo,
+    //  required this.curentInfo
+  });
   //obtenir l'objet et l'affecter aux donneé de l'apien json
   factory WeatherResponse.fromJson(Map<String, dynamic> json) {
     final String? cityNamee;
@@ -73,14 +81,16 @@ class WeatherResponse {
 
     final temperatureInfoJson = json["main"];
     final tempInfo = TemperatureInfo.fromJson(temperatureInfoJson);
+
     final weatherInfoJson = json['weather'][0];
     final weatherInfo = WeatherInfo.from(weatherInfoJson);
     final curentInfoJson = json['sys'];
-    final curentInfo = CurentInfo.from(curentInfoJson);
+    //  final curentInfo = CurentInfo.from(curentInfoJson);
     return WeatherResponse(
-        cityNamee: cityNamee,
-        tempInfo: tempInfo,
-        weatherInfo: weatherInfo,
-        curentInfo: curentInfo);
+      cityNamee: cityNamee,
+      tempInfo: tempInfo,
+      weatherInfo: weatherInfo,
+      //curentInfo: curentInfo
+    );
   }
 }
