@@ -9,7 +9,7 @@ class DataService {
     //https:///data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     final queryParamaters = {
       'q': city,
-      'appid': 'c4099a39068f8ec2abc163f79e53f88a',
+      'appid': 'entré le clé de ',
       'units': 'metric'
     };
     // final urlWeather =Url.https('api.openweathermap.org,'/data/2.5/weather',  queryParamaters);
